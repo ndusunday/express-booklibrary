@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+    ul
+    each bookinstance in bookinstance_list
+        li
+            a(href=bookinstance.url) #{bookinstance.book.title}: #{bookinstance.imprint}
+            if bookinstance.statur == 'Available'
+                span.text-suceess #{bookinstance.status}
+            else if bookinstance.status == 'Maintanance'
+                span text-danger #{bookinstance.status}
+            else
+                span.text-warning #{bookinstance.status}
+            if bookinstance.status!= 'Available'
+                span (Due: #{bookinstance.due_bacjk})
+
+    else
+        li There are no book copies in this library.
+        
+    

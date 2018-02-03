@@ -1,0 +1,15 @@
+doctype html
+html(lang = "en")
+    head
+        title = title
+        script(type="text/javascript"), link(rel="stylesheet", href="/public/stylesheets/style.css")
+        meta(name='viewport' )
+
+    body
+        h1 = #{title}
+        p Hello this is test version
+
+        if title
+            p A variable named "title" exits
+        else
+            p A variable named "title" doesn't exit
