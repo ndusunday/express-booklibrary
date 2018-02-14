@@ -2,6 +2,7 @@
 var Author = require('../models/author');
 var Book = require('../models/book');
 var async = require('async');
+var debug = require('debug')('author');
 
 // Import the validation and sanitisation modules
 const {body, validationResult} = require('express-validator/check');
@@ -150,6 +151,7 @@ exports.author_delete_post = function(req, res, next) {
 
 // Display Author update form on GET.
 exports.author_update_get = function(req, res) {
+    req.sanitize('id').escape().trim();
     res.send('NOT IMPLEMENTED: Author update GET');
 };
 

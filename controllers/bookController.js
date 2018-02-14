@@ -5,6 +5,7 @@ var Book = require('../models/book');
 var Author = require('../models/author');
 var Genre = require('../models/genre');
 var BookInstance = require('../models/bookinstance');
+var debug = require('debug')('book');
 
 var async = require('async');
 
@@ -201,7 +202,9 @@ exports.book_delete_post = function(req, res) {
 };
 
 // Display book update form on GET.
-exports.book_update_get = function(req, res) {
+exports.book_update_get = function(req, res, next) {
+
+    //req.sanitize('id').escape().trim();
     // Get book, authors and genres for form.
     async.parallel({
         book: function(callback) {
@@ -235,8 +238,6 @@ exports.book_update_get = function(req, res) {
 };
 
 // Handle book update on POST.
-exports.book_update_post = function(req, res) {
-    // Handle book update on POST.
 exports.book_update_post = [
 
     // Convert the genre to an array
@@ -313,4 +314,3 @@ exports.book_update_post = [
         }
     }
 ];
-};
