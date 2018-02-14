@@ -1,5 +1,6 @@
 // import mongoose
 var mongoose = require('mongoose');
+var moment = require('moment');
 
 // Get a schema
 var Schema = mongoose.Schema;

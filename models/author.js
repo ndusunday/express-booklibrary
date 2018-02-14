@@ -34,6 +34,10 @@ AuthorSchema.virtual('death_date_formatted')
 .get(function () {
     return moment(this.date_of_death).format('MMMM Do, YYYY');
 })
+
+AuthorSchema.virtual('delete').get(function(){
+    return '/catalog/author/'+ this._id+ '/delete';
+})
 // Export model
 var AuthorModel = mongoose.model('Author', AuthorSchema);
 module.exports = AuthorModel;
